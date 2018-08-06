@@ -30,6 +30,7 @@ import OrganizationHomeContainer from 'app/components/organizations/homeContaine
 import OrganizationMembers from 'app/views/settings/organizationMembers';
 import OrganizationRoot from 'app/views/organizationRoot';
 import OrganizationStats from 'app/views/organizationStats';
+import PluginHellth from 'app/views/pluginHell(th)/index';
 import ProjectEnvironments from 'app/views/projectEnvironments';
 import ProjectTags from 'app/views/projectTags';
 import ProjectChooser from 'app/views/projectChooser';
@@ -730,7 +731,11 @@ function routes() {
       <Route path="/:orgId/" component={errorHandler(OrganizationDetails)}>
         <Route component={errorHandler(OrganizationRoot)}>
           <IndexRoute component={errorHandler(OrganizationDashboard)} />
-
+          <Route
+            name="Hellth"
+            path="/organizations/:orgId/hellth/"
+            component={errorHandler(PluginHellth)}
+          />
           <Route
             path="/organizations/:orgId/discover/"
             componentPromise={() =>
