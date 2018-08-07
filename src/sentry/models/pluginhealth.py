@@ -51,6 +51,7 @@ class PluginHealth(Model):
 
 
 class PluginHealthTest(Model):
+    __core__ = True
     date_added = models.DateTimeField(default=timezone.now)
     plugin = FlexibleForeignKey('sentry.PluginHealth')
     test_data = JSONField()
