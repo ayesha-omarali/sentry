@@ -166,7 +166,6 @@ class Endpoint(APIView):
             if getattr(request, 'access', None) is None:
                 # setup default access
                 request.access = access.from_request(request)
-
             response = handler(request, *args, **kwargs)
 
         except Exception as exc:

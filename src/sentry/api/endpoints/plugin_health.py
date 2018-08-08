@@ -15,7 +15,7 @@ class PluginHealthEndpoint(Endpoint):
     authentication_classes = ()
     permission_classes = ()
 
-    def get(self, request):
+    def get(self, request, **kwargs):
         queryset = PluginHealth.objects.all(
             status=ObjectStatus.VISIBLE,
         )
@@ -28,7 +28,7 @@ class PluginHealthEndpoint(Endpoint):
             on_results=lambda x: serialize(x, request.user),
         )
 
-    def post(self, request):
+    def post(self, request, **kwargs):
         serializer = PluginHealthSerializer(data=request.DATA)
 
         if serializer.is_valid():
