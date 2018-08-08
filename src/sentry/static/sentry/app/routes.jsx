@@ -31,6 +31,7 @@ import OrganizationMembers from 'app/views/settings/organizationMembers';
 import OrganizationRoot from 'app/views/organizationRoot';
 import OrganizationStats from 'app/views/organizationStats';
 import PluginHellth from 'app/views/pluginHell(th)/index';
+import PluginDetails from 'app/views/pluginHell(th)/pluginDetails/pluginDetails';
 import ProjectEnvironments from 'app/views/projectEnvironments';
 import ProjectTags from 'app/views/projectTags';
 import ProjectChooser from 'app/views/projectChooser';
@@ -735,6 +736,11 @@ function routes() {
             name="Hellth"
             path="/organizations/:orgId/hellth/"
             component={errorHandler(PluginHellth)}
+          />
+          <Route
+            name="Hellth Details"
+            path="/organizations/:orgId/hellth/:pluginId"
+            component={errorHandler(PluginDetails)}
           />
           <Route
             path="/organizations/:orgId/discover/"

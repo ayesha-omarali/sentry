@@ -43,7 +43,7 @@ export default class Table extends React.Component {
             </Box>
           </PanelHeader>
           <PanelBody>
-            <PluginList urlPrefix={urlPrefix} pluginList={pluginList} />
+            <PluginList urlPrefix={urlPrefix} pluginList={pluginList} organization={this.props.organization}/>
           </PanelBody>
         </Panel>
       </div>

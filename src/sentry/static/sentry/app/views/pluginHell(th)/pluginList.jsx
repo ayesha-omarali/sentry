@@ -15,6 +15,7 @@ export default class PluginList extends React.Component {
           errors={plugin.errors}
           smileStatus={plugin.smileStatus}
           urlPrefix={urlPrefix}
+          organization={this.props.organization}
         />
       );
     });
