@@ -14,6 +14,7 @@ const pluginDetails = createReactClass({
     const pluginInfo = {
       name: 'Jira',
       errors: 123,
+      pluginStatus: 'Under Maintenance',
       smileStatus: 4,
     };
     return (
@@ -35,24 +36,24 @@ const pluginDetails = createReactClass({
           Something will be here soon (:
           <PluginIcon size={36} pluginId={pluginInfo.name.toLowerCase()} />
         </Flex>
-        <div style={{flex:'auto', padding:20}}>
-        <Form>
-          <JsonForm
-            title={t('Digests')}
-            fields={[{name: "Test 1", type: "text"}, {name: "Test 2", type: "text"}]}
-            renderHeader={() => (
-              <PanelAlert type="info">
-                {t(
-                  'Sentry will automatically digest alerts sent ' +
-                    'by some services to avoid flooding your inbox ' +
-                    'with individual issue notifications. To control ' +
-                    'how frequently notifications are delivered, use ' +
-                    'the sliders below.'
-                )}
-              </PanelAlert>
-            )}
-          />
-        </Form>
+        <div style={{flex: 'auto', padding: 20}}>
+          <Form>
+            <JsonForm
+              title={t('Digests')}
+              fields={[{name: 'Test 1', type: 'text'}, {name: 'Test 2', type: 'text'}]}
+              renderHeader={() => (
+                <PanelAlert type="info">
+                  {t(
+                    'Sentry will automatically digest alerts sent ' +
+                      'by some services to avoid flooding your inbox ' +
+                      'with individual issue notifications. To control ' +
+                      'how frequently notifications are delivered, use ' +
+                      'the sliders below.'
+                  )}
+                </PanelAlert>
+              )}
+            />
+          </Form>
         </div>
       </PluginDetails>
     );

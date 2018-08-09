@@ -12,21 +12,25 @@ export default class Table extends React.Component {
       {
         name: 'OpsGenie',
         errors: 123,
+        pluginStatus: 'Operational',
         smileStatus: 4,
       },
       {
         name: 'Jira',
         errors: 119,
+        pluginStatus: 'Under Maintenance',
         smileStatus: 4,
       },
       {
         name: 'VSTS',
         errors: 232,
+        pluginStatus: 'Degraded Performance',
         smileStatus: 4,
       },
       {
         name: 'Trello',
         errors: 444,
+        pluginStatus: 'Major Outage',
         smileStatus: 4,
       },
     ];
@@ -39,11 +43,18 @@ export default class Table extends React.Component {
               {t('Errors')}
             </Box>
             <Box w={150} pl={57}>
+              {t('Status')}
+            </Box>
+            <Box w={150} pl={57}>
               {t('Details')}
             </Box>
           </PanelHeader>
           <PanelBody>
-            <PluginList urlPrefix={urlPrefix} pluginList={pluginList} organization={this.props.organization}/>
+            <PluginList
+              urlPrefix={urlPrefix}
+              pluginList={pluginList}
+              organization={this.props.organization}
+            />
           </PanelBody>
         </Panel>
       </div>

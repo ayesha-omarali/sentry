@@ -13,6 +13,7 @@ export default class PluginList extends React.Component {
         <PluginRow
           name={plugin.name}
           errors={plugin.errors}
+          pluginStatus={plugin.pluginStatus}
           smileStatus={plugin.smileStatus}
           urlPrefix={urlPrefix}
           organization={this.props.organization}

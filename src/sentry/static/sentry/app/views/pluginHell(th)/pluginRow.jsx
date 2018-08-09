@@ -11,7 +11,7 @@ import {PanelItem} from 'app/components/panels';
 
 const PluginRow = createReactClass({
   render() {
-    const {name, errors, smileStatus, urlPrefix, organization} = this.props;
+    const {name, errors, pluginStatus, smileStatus, urlPrefix, organization} = this.props;
     return (
       <PanelItem p={0} align="center">
         <Box flex="1" p={2}>
@@ -19,8 +19,12 @@ const PluginRow = createReactClass({
           {/*<Link to={`${urlPrefix}details/${name}/`}>{name}</Link>*/}
         </Box>
         <Box w={150}>{errors}</Box>
+        <Box w={150}>{pluginStatus}</Box>
         <Box p={2} align="right">
-          <Button size="small" to={`/organizations/${organization.slug}/hellth/${name.toLowerCase()}`}>
+          <Button
+            size="small"
+            to={`/organizations/${organization.slug}/hellth/${name.toLowerCase()}`}
+          >
             {t('View Details')}
           </Button>
         </Box>
