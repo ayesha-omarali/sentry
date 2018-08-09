@@ -67,7 +67,7 @@ export default class ProjectAlertSettings extends AsyncView {
     let {orgId, projectId} = this.props.params;
     let {organization} = this.props;
     let canEditRule = organization.access.includes('project:write');
-
+    console.log("FIELDS:", [fields.digestsMinDelay, fields.digestsMaxDelay]);
     return (
       <React.Fragment>
         <SettingsPageHeader

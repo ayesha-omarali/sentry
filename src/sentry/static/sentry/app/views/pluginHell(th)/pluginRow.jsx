@@ -19,10 +19,10 @@ const PluginRow = createReactClass({
         </Box>
         <Box w={150}>{errors}</Box>
         <Box p={2} align="right">
-          <Button size="small" to={`/organizations/${organization.slug}/hellth/${name}`}>
+          <Button size="small" to={`/organizations/${organization.slug}/hellth/${name.toLowerCase()}`}>
             {t('View Details')}
           </Button>
-        </Box>}
+        </Box>
       </PanelItem>
     );
   },
