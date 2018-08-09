@@ -15,7 +15,8 @@ const PluginRow = createReactClass({
     return (
       <PanelItem p={0} align="center">
         <Box flex="1" p={2}>
-          <Link to={`${urlPrefix}details/${name}/`}>{name}</Link>
+          {name}
+          {/*<Link to={`${urlPrefix}details/${name}/`}>{name}</Link>*/}
         </Box>
         <Box w={150}>{errors}</Box>
         <Box p={2} align="right">
