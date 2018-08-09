@@ -117,7 +117,7 @@ export default class ProjectAlertSettings extends AsyncView {
           <JsonForm title={t('Email Settings')} fields={[fields.subjectTemplate]} />
 
           <JsonForm
-            title={t('Digests')}
+            title={t('Plugin Details')}
             fields={[fields.digestsMinDelay, fields.digestsMaxDelay]}
             renderHeader={() => (
               <PanelAlert type="info">
