@@ -89,6 +89,7 @@ from .endpoints.organization_stats import OrganizationStatsEndpoint
 from .endpoints.organization_teams import OrganizationTeamsEndpoint
 from .endpoints.organization_user_issues import OrganizationUserIssuesEndpoint
 from .endpoints.organization_user_issues_search import OrganizationUserIssuesSearchEndpoint
+from .endpoints.plugin_health import PluginHealthEndpoint
 from .endpoints.project_avatar import ProjectAvatarEndpoint
 from .endpoints.project_details import ProjectDetailsEndpoint
 from .endpoints.project_transfer import ProjectTransferEndpoint
@@ -357,6 +358,12 @@ urlpatterns = patterns(
         r'^organizations/(?P<organization_slug>[^\/]+)/discover/$',
         OrganizationDiscoverEndpoint.as_view(),
         name='sentry-api-0-organization-discover'
+    ),
+    # Plugin Crusaders
+    url(
+        r'^organizations/(?P<organization_slug>[^\/]+)/hellth/$',
+        PluginHealthEndpoint.as_view(),
+        name='sentry-api-0-plugin-health'
     ),
     url(
         r'^organizations/(?P<organization_slug>[^\/]+)/shortids/(?P<short_id>[^\/]+)/$',
