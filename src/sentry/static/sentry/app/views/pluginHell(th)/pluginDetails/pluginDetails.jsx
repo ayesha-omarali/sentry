@@ -13,69 +13,150 @@ import {t, tct} from 'app/locale';
 import {Box} from 'grid-emotion';
 import {PanelItem} from 'app/components/panels';
 import OrganizationState from 'app/mixins/organizationState';
+const plugins = {
+  'plugins': [
+      {
+          'key': 'bitbucket',
+          'displayName': 'Bitbucket (old plugin)',
+          'features': ['issueBasic', 'repository'],
+          'testResults': [
+              {
+                  'name': 'Configure',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Link Issue',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Create Issue',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Create Repository',
+                  'result': 'Pass'
+              }
+          ],
+          'testScore': 100
+      },
+      {
+          'key': 'integrations:bitbucket',
+          'displayName': 'Bitbucket (new integration)',
+          'features': ['issueBasic', 'repository'],
+          'testResults': [
+              {
+                  'name': 'Configure',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Link Issue',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Create Issue',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Create Repository',
+                  'result': 'Pass'
+              }
+          ],
+          'testScore': 100
+      },
+      {
+          'key': 'integrations:vsts',
+          'displayName': 'Visual Studio Team Services (new integration)',
+          'features': ['issueBasic', 'issueSync', 'repository'],
+          'testResults': [
+              {
+                  'name': 'Configure',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              },
+              {
+                  'name': 'Link Issue',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              },
+              {
+                  'name': 'Create Issue',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              },
+              {
+                  'name': 'Sync Issue Status',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              },
+              {
+                  'name': 'Sync Issue Comment',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              },
+              {
+                  'name': 'Sync Issue Assignee',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              },
+              {
+                  'name': 'Create Repository',
+                  'result': 'Failure',
+                  'error': '500 INTERNAL SERVER ERROR'
+              }
+          ],
+          'testScore': 0
+      },
+      {
+          'key': 'visualstudio',
+          'displayName': 'Visual Studio Team Services (old plugin)',
+          'features': ['issueBasic', 'repository'],
+          'testResults': [
+              {
+                  'name': 'Configure',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Link Issue',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Create Issue',
+                  'result': 'Pass'
+              },
+              {
+                  'name': 'Create Repository',
+                  'result': 'Pass'
+              }
+          ],
+          'testScore': 100
+      }
+  ]
+}
 
 const pluginDetails = createReactClass({
   mixins: [OrganizationState],
 
   render() {
-    const tests = [
-      {
-        name: 'Configure',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-      {
-        name: 'Link Issue',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-      {
-        name: 'Create Issue',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-      {
-        name: 'Sync Issue Status',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-      {
-        name: 'Sync Issue Comment',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-      {
-        name: 'Sync Issue Assignee',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-      {
-        name: 'Create Repository',
-        result: 'Failure',
-        error: '500 INTERNAL SERVER ERROR',
-      },
-    ];
+    let {orgId, pluginId} = this.props.params;
+    console.log(this.props, this.context);
+    const pluginInfo = plugins.plugins.filter((plugin) => {
+      return plugin.key === pluginId
+    })[0];
 
-    const testData = tests.map((plugin, idx) => {
+    const testData = pluginInfo.testResults.map((test, idx) => {
       return (
         <PanelItem p={0} align="center">
           <Box flex="1" p={2}>
-            {plugin.name}
+            {test.name}
           </Box>
-          <Box w={150}>{plugin.result}</Box>
+          <Box w={150}>{test.result}</Box>
           <Box p={2} align="right">
             {' '}
-            {plugin.error}
+            {test.error || 'N/A'}
           </Box>
         </PanelItem>
       );
     });
-    const pluginInfo = {
-      name: 'Jira',
-      errors: 123,
-      pluginStatus: 'Under Maintenance',
-      smileStatus: 4,
-    };
 
     return (
       <PluginDetails>
@@ -87,13 +168,8 @@ const pluginDetails = createReactClass({
           style={{marginBottom: 16}}
         >
           <HeaderName style={{alignItems: 'center', flexDirection: 'row'}}>
-            <strong>{t(`Plugin Hell(th) of ${pluginInfo.name}`)}</strong>
-            <PluginIcon
-              p={2}
-              pl={25}
-              size={50}
-              pluginId={pluginInfo.name.toLowerCase()}
-            />
+            <strong>{t(`Plugin Hell(th) of ${pluginInfo.displayName}`)}</strong>
+            <PluginIcon p={2} pl={10} size={50} pluginId={pluginInfo.key} />
           </HeaderName>
           <Button
             align="right"
