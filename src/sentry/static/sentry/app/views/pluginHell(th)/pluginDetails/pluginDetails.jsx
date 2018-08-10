@@ -159,8 +159,8 @@ const pluginDetails = createReactClass({
           <Box flex="1" p={2}>
             {test.name}
           </Box>
-          <Box w={150}>{test.result}</Box>
-          <Box w={150} p={2} align="right">
+          <Box w={135}>{test.result}</Box>
+          <Box w={170} p={2} align="right">
             {test.error || 'N/A'}
           </Box>
         </PanelItem>
@@ -184,6 +184,7 @@ const pluginDetails = createReactClass({
             align="right"
             size="small"
             to={`/organizations/${this.context.organization.slug}/hellth/`}
+            style={{alignItems: 'center'}}
           >
             {t('Back To Plugin Hell(th) Home')}
           </Button>
@@ -212,7 +213,7 @@ const pluginDetails = createReactClass({
               <Box w={150} flex="1">
                 {t('Test')}
               </Box>
-              <Box w={150}>{t('Test Result')}</Box>
+              <Box w={135}>{t('Test Result')}</Box>
               <Box w={150}>{t('Error Received')}</Box>
             </PanelHeader>
             <PanelBody> {testData} </PanelBody>
@@ -264,7 +265,7 @@ const Card = styled(Flex)`
 `;
 
 const CardHeader = styled(Flex)`
-  height: 28%;
+  height: 30%;
   width: 100%;
   padding: 1em;
   text-align: center;
@@ -272,6 +273,7 @@ const CardHeader = styled(Flex)`
   background-color: #fafafa;
   box-sizing: border-box;
   border-radius: 10px 10px 0 0;
+  padding-bottom:30px;
 `;
 
 const CardContent = styled(Flex)`
