@@ -10,6 +10,18 @@ export default class Table extends React.Component {
     const urlPrefix = 'organizations/sentry/hellth/';
     const pluginList = [
       {
+        logger: 'VSTS',
+        count: 45,
+      },
+      {
+        logger: 'Bitbucket',
+        count: 17,
+      },
+      {
+        logger: 'Visualstudio',
+        count: 23,
+      },
+      {
         logger: 'Jira',
         count: 78127,
       },
@@ -67,24 +79,12 @@ export default class Table extends React.Component {
         count: 104,
       },
       {
-        logger: 'VSTS',
-        count: 45,
-      },
-      {
         logger: 'Gitlab',
         count: 42,
       },
       {
-        logger: 'Visualstudio',
-        count: 23,
-      },
-      {
         logger: 'Phabricator',
         count: 21,
-      },
-      {
-        logger: 'Bitbucket',
-        count: 17,
       },
       {
         logger: 'Redmine',
@@ -109,9 +109,7 @@ export default class Table extends React.Component {
         <Panel>
           <PanelHeader>
             <Box flex="1">{t('Plugins Status')}</Box>
-            <Box w={112} >
-              {t('Errors')}
-            </Box>
+            <Box w={112}>{t('Errors')}</Box>
             <Box w={150} pl={57}>
               {t('Details')}
             </Box>
