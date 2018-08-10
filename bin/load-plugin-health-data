@@ -1,0 +1,166 @@
+#!/usr/bin/env python
+from sentry.runner import configure
+configure()
+
+from sentry.models import (
+    PluginFeatures, PluginHealth, PluginHealthTest,
+)
+from django.conf import settings
+
+PLUGIN_TESTS = {
+    'plugins': [
+        {
+            'key': 'bitbucket',
+            'displayName': 'Bitbucket (old plugin)',
+            'features': ['issueBasic', 'repository'],
+            'testResults': [
+                {
+                    'name': 'Configure',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Link Issue',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Create Issue',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Create Repository',
+                    'result': 'Pass'
+                }
+            ],
+            'testScore': 100
+        },
+        {
+            'key': 'integrations:bitbucket',
+            'displayName': 'Bitbucket (new integration)',
+            'features': ['issueBasic', 'repository'],
+            'testResults': [
+                {
+                    'name': 'Configure',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Link Issue',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Create Issue',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Create Repository',
+                    'result': 'Pass'
+                }
+            ],
+            'testScore': 100
+        },
+        {
+            'key': 'integrations:vsts',
+            'displayName': 'Visual Studio Team Services (new integration)',
+            'features': ['issueBasic', 'issueSync', 'repository'],
+            'testResults': [
+                {
+                    'name': 'Configure',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                },
+                {
+                    'name': 'Link Issue',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                },
+                {
+                    'name': 'Create Issue',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                },
+                {
+                    'name': 'Sync Issue Status',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                },
+                {
+                    'name': 'Sync Issue Comment',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                },
+                {
+                    'name': 'Sync Issue Assignee',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                },
+                {
+                    'name': 'Create Repository',
+                    'result': 'Failure',
+                    'error': '500 INTERNAL SERVER ERROR'
+                }
+            ],
+            'testScore': 0
+        },
+        {
+            'key': 'visualstudio',
+            'displayName': 'Visual Studio Team Services (old plugin)',
+            'features': ['issueBasic', 'repository'],
+            'testResults': [
+                {
+                    'name': 'Configure',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Link Issue',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Create Issue',
+                    'result': 'Pass'
+                },
+                {
+                    'name': 'Create Repository',
+                    'result': 'Pass'
+                }
+            ],
+            'testScore': 100
+        }
+    ]
+}
+features = {
+    'issueBasic': PluginFeatures.issue_basic,
+    'issueSync': PluginFeatures.issue_sync,
+    'repository': PluginFeatures.repository
+}
+
+
+def load_plugin_health():
+    for plugin in PLUGIN_TESTS['plugins']:
+        plugin_health = PluginHealth.objects.create(
+            name=plugin['key'],
+            metadata={
+                'display_name': plugin['displayName'],
+            },
+            features_list=[features[f] for f in plugin['features']],
+            author='The Sentry Team',
+        )
+        PluginHealthTest.objects.create(
+            plugin=plugin_health,
+            test_data={
+                'test_results': plugin['testResults'],
+                'test_score': plugin['testScore'],
+            }
+        )
+
+
+if __name__ == '__main__':
+    settings.CELERY_ALWAYS_EAGER = True
+
+    try:
+        load_plugin_health()
+    except Exception:
+        # Avoid reporting any issues recursively back into Sentry
+        import traceback
+        import sys
+
+        traceback.print_exc()
+        sys.exit(1)
