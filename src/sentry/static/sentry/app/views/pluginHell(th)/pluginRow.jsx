@@ -9,6 +9,7 @@ import {joinTeam, leaveTeam} from 'app/actionCreators/teams';
 import {t, tct} from 'app/locale';
 import {PanelItem} from 'app/components/panels';
 
+const enabledDetails = ['bitbucket', 'visualstudio', 'integrations:bitbucket', 'vsts'];
 const PluginRow = createReactClass({
   render() {
     const {name, errors, pluginStatus, smileStatus, urlPrefix, organization} = this.props;
@@ -21,12 +22,14 @@ const PluginRow = createReactClass({
         <Box w={0}>{errors}</Box>
         <Box w={150}>{pluginStatus}</Box>
         <Box p={2} align="right">
+        { enabledDetails.includes(name) &&(
           <Button
             size="small"
             to={`/organizations/${organization.slug}/hellth/${name.toLowerCase()}`}
           >
             {t('View Details')}
           </Button>
+        ) || 'Coming Soon'}
         </Box>
       </PanelItem>
     );

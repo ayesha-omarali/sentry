@@ -37,7 +37,10 @@ const plugins = {
                   'result': 'Pass'
               }
           ],
-          'testScore': 100
+          'testScore': 100,
+          'information':'Off-brand Github.',
+          'login': 'To be filled in at a later date.',
+          'install': 'Ask LB :P.'
       },
       {
           'key': 'integrations:bitbucket',
@@ -128,7 +131,10 @@ const plugins = {
                   'result': 'Pass'
               }
           ],
-          'testScore': 100
+          'testScore': 100,
+          'information':'Visual Studio Team Services is Jira + Bitbucket/Github in Microsoft land.',
+          'login': 'App controlled by Cramer. Ping him for access. He\'d love to help!',
+          'install': 'Ask LB :P.'
       }
   ]
 }
@@ -183,25 +189,20 @@ const pluginDetails = createReactClass({
         <CardWrapper>
           <Card>
             <CardHeader>How To Login</CardHeader>
-            <CardContent>Go to this page to find more!!! </CardContent>
+            <CardContent>{t(`${pluginInfo.login}`)}</CardContent>
           </Card>
 
           <Card>
             <CardHeader>What is it</CardHeader>
             <CardContent>
-              More info here yada yada yada yada
-              More info here yada yada yada yada
-              More info here yada yada yada yada
-              More info here yada yada yada yada
+              {t(`${pluginInfo.information}`)}
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>How To Install</CardHeader>
             <CardContent>
-              blah blah blah blah blah blah blah blah
-              blah blah blah blah blah blah blah blah
-              blah blah blah blah blah blah blah blah
+             {t(`${pluginInfo.install}`)}
             </CardContent>
           </Card>
         </CardWrapper>
