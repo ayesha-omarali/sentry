@@ -22,7 +22,7 @@ const PluginRow = createReactClass({
         <Box w={0}>{errors}</Box>
         <Box w={150}>{pluginStatus}</Box>
         <Box p={2} align="right">
-        { enabledDetails.includes(name) &&(
+        { enabledDetails.includes(name.toLowerCase()) &&(
           <Button
             size="small"
             to={`/organizations/${organization.slug}/hellth/${name.toLowerCase()}`}

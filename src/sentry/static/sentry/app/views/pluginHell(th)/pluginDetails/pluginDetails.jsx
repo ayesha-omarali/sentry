@@ -67,7 +67,7 @@ const plugins = {
           'testScore': 100
       },
       {
-          'key': 'integrations:vsts',
+          'key': 'vsts',
           'displayName': 'Visual Studio Team Services (new integration)',
           'features': ['issueBasic', 'issueSync', 'repository'],
           'testResults': [
@@ -107,7 +107,10 @@ const plugins = {
                   'error': '500 INTERNAL SERVER ERROR'
               }
           ],
-          'testScore': 0
+          'testScore': 0,
+          'information':'Visual Studio Team Services is Jira + Bitbucket/Github in Microsoft land.',
+          'login': 'App controlled by Cramer. Ping him for access. He\'d love to help!',
+          'install': 'Ask LB :P.'
       },
       {
           'key': 'visualstudio',
@@ -144,11 +147,10 @@ const pluginDetails = createReactClass({
 
   render() {
     let {orgId, pluginId} = this.props.params;
-    console.log(this.props, this.context);
     const pluginInfo = plugins.plugins.filter((plugin) => {
       return plugin.key === pluginId
     })[0];
-
+    console.log(pluginInfo, pluginId);
     const testData = pluginInfo.testResults.map((test, idx) => {
       return (
         <PanelItem p={0} align="center">
