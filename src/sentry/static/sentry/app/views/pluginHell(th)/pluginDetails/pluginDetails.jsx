@@ -14,141 +14,143 @@ import {Box} from 'grid-emotion';
 import {PanelItem} from 'app/components/panels';
 import OrganizationState from 'app/mixins/organizationState';
 const plugins = {
-  'plugins': [
-      {
-          'key': 'bitbucket',
-          'displayName': 'Bitbucket (old plugin)',
-          'features': ['issueBasic', 'repository'],
-          'testResults': [
-              {
-                  'name': 'Configure',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Link Issue',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Create Issue',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Create Repository',
-                  'result': 'Pass'
-              }
-          ],
-          'testScore': 100,
-          'information':'Off-brand Github.',
-          'login': 'To be filled in at a later date.',
-          'install': 'Ask LB :P.'
-      },
-      {
-          'key': 'integrations:bitbucket',
-          'displayName': 'Bitbucket (new integration)',
-          'features': ['issueBasic', 'repository'],
-          'testResults': [
-              {
-                  'name': 'Configure',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Link Issue',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Create Issue',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Create Repository',
-                  'result': 'Pass'
-              }
-          ],
-          'testScore': 100
-      },
-      {
-          'key': 'vsts',
-          'displayName': 'Visual Studio Team Services (new integration)',
-          'features': ['issueBasic', 'issueSync', 'repository'],
-          'testResults': [
-              {
-                  'name': 'Configure',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              },
-              {
-                  'name': 'Link Issue',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              },
-              {
-                  'name': 'Create Issue',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              },
-              {
-                  'name': 'Sync Issue Status',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              },
-              {
-                  'name': 'Sync Issue Comment',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              },
-              {
-                  'name': 'Sync Issue Assignee',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              },
-              {
-                  'name': 'Create Repository',
-                  'result': 'Failure',
-                  'error': '500 INTERNAL SERVER ERROR'
-              }
-          ],
-          'testScore': 0,
-          'information':'Visual Studio Team Services is Jira + Bitbucket/Github in Microsoft land.',
-          'login': 'App controlled by Cramer. Ping him for access. He\'d love to help!',
-          'install': 'Ask LB :P.'
-      },
-      {
-          'key': 'visualstudio',
-          'displayName': 'Visual Studio Team Services (old plugin)',
-          'features': ['issueBasic', 'repository'],
-          'testResults': [
-              {
-                  'name': 'Configure',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Link Issue',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Create Issue',
-                  'result': 'Pass'
-              },
-              {
-                  'name': 'Create Repository',
-                  'result': 'Pass'
-              }
-          ],
-          'testScore': 100,
-          'information':'Visual Studio Team Services is Jira + Bitbucket/Github in Microsoft land.',
-          'login': 'App controlled by Cramer. Ping him for access. He\'d love to help!',
-          'install': 'Ask LB :P.'
-      }
-  ]
-}
+  plugins: [
+    {
+      key: 'bitbucket',
+      displayName: 'Bitbucket (old plugin)',
+      features: ['issueBasic', 'repository'],
+      testResults: [
+        {
+          name: 'Configure',
+          result: 'Pass',
+        },
+        {
+          name: 'Link Issue',
+          result: 'Pass',
+        },
+        {
+          name: 'Create Issue',
+          result: 'Pass',
+        },
+        {
+          name: 'Create Repository',
+          result: 'Pass',
+        },
+      ],
+      testScore: 100,
+      information: 'Off-brand Github.',
+      login: 'To be filled in at a later date.',
+      install: 'Ask LB :P.',
+    },
+    {
+      key: 'integrations:bitbucket',
+      displayName: 'Bitbucket (new integration)',
+      features: ['issueBasic', 'repository'],
+      testResults: [
+        {
+          name: 'Configure',
+          result: 'Pass',
+        },
+        {
+          name: 'Link Issue',
+          result: 'Pass',
+        },
+        {
+          name: 'Create Issue',
+          result: 'Pass',
+        },
+        {
+          name: 'Create Repository',
+          result: 'Pass',
+        },
+      ],
+      testScore: 100,
+    },
+    {
+      key: 'vsts',
+      displayName: 'Visual Studio Team Services (new integration)',
+      features: ['issueBasic', 'issueSync', 'repository'],
+      testResults: [
+        {
+          name: 'Configure',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+        {
+          name: 'Link Issue',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+        {
+          name: 'Create Issue',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+        {
+          name: 'Sync Issue Status',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+        {
+          name: 'Sync Issue Comment',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+        {
+          name: 'Sync Issue Assignee',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+        {
+          name: 'Create Repository',
+          result: 'Failure',
+          error: '500 INTERNAL SERVER ERROR',
+        },
+      ],
+      testScore: 0,
+      information:
+        'Visual Studio Team Services is Jira + Bitbucket/Github in Microsoft land.',
+      login: "App controlled by Cramer. Ping him for access. He'd love to help!",
+      install: 'Ask LB :P.',
+    },
+    {
+      key: 'visualstudio',
+      displayName: 'Visual Studio Team Services (old plugin)',
+      features: ['issueBasic', 'repository'],
+      testResults: [
+        {
+          name: 'Configure',
+          result: 'Pass',
+        },
+        {
+          name: 'Link Issue',
+          result: 'Pass',
+        },
+        {
+          name: 'Create Issue',
+          result: 'Pass',
+        },
+        {
+          name: 'Create Repository',
+          result: 'Pass',
+        },
+      ],
+      testScore: 100,
+      information:
+        'Visual Studio Team Services is Jira + Bitbucket/Github in Microsoft land.',
+      login: "App controlled by Cramer. Ping him for access. He'd love to help!",
+      install: 'Ask LB :P.',
+    },
+  ],
+};
 
 const pluginDetails = createReactClass({
   mixins: [OrganizationState],
 
   render() {
     let {orgId, pluginId} = this.props.params;
-    const pluginInfo = plugins.plugins.filter((plugin) => {
-      return plugin.key === pluginId
+    const pluginInfo = plugins.plugins.filter(plugin => {
+      return plugin.key === pluginId;
     })[0];
     console.log(pluginInfo, pluginId);
     const testData = pluginInfo.testResults.map((test, idx) => {
@@ -158,8 +160,7 @@ const pluginDetails = createReactClass({
             {test.name}
           </Box>
           <Box w={150}>{test.result}</Box>
-          <Box p={2} align="right">
-            {' '}
+          <Box w={150} p={2} align="right">
             {test.error || 'N/A'}
           </Box>
         </PanelItem>
@@ -176,8 +177,8 @@ const pluginDetails = createReactClass({
           style={{marginBottom: 16}}
         >
           <HeaderName style={{alignItems: 'center', flexDirection: 'row'}}>
-            <strong>{t(`Plugin Hell(th) of ${pluginInfo.displayName}`)}</strong>
-            <PluginIcon p={2} pl={10} size={50} pluginId={pluginInfo.key} />
+            <strong style={{paddingRight:10}}>{t(`Plugin Hell(th) of ${pluginInfo.displayName}`)}</strong>
+            <PluginIcon p={2} pl={20} size={50} pluginId={pluginInfo.key} />
           </HeaderName>
           <Button
             align="right"
@@ -196,25 +197,23 @@ const pluginDetails = createReactClass({
 
           <Card>
             <CardHeader>What is it</CardHeader>
-            <CardContent>
-              {t(`${pluginInfo.information}`)}
-            </CardContent>
+            <CardContent>{t(`${pluginInfo.information}`)}</CardContent>
           </Card>
 
           <Card>
             <CardHeader>How To Install</CardHeader>
-            <CardContent>
-             {t(`${pluginInfo.install}`)}
-            </CardContent>
+            <CardContent>{t(`${pluginInfo.install}`)}</CardContent>
           </Card>
         </CardWrapper>
 
         <div className="team-list" style={{flex: 'auto', padding: 20}}>
           <Panel>
             <PanelHeader>
-              <Box flex="1">{t('Test')}</Box>
-              <Box w={173}>{t('Test Result')}</Box>
-              <Box w={225}>{t('Error Received')}</Box>
+              <Box w={150} flex="1">
+                {t('Test')}
+              </Box>
+              <Box w={150}>{t('Test Result')}</Box>
+              <Box w={150}>{t('Error Received')}</Box>
             </PanelHeader>
             <PanelBody> {testData} </PanelBody>
           </Panel>
@@ -249,7 +248,7 @@ const CardWrapper = styled(Flex)`
   flex-flow: row;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom:20px;
+  padding-bottom: 20px;
   align: center;
 `;
 const Card = styled(Flex)`
