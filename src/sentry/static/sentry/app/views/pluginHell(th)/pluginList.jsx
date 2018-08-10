@@ -11,10 +11,8 @@ export default class PluginList extends React.Component {
     const pluginNodes = this.props.pluginList.map((plugin, idx) => {
       return (
         <PluginRow
-          name={plugin.name}
-          errors={plugin.errors}
-          pluginStatus={plugin.pluginStatus}
-          smileStatus={plugin.smileStatus}
+          name={plugin.logger}
+          errors={plugin.count}
           urlPrefix={urlPrefix}
           organization={this.props.organization}
         />

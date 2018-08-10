@@ -10,30 +10,100 @@ export default class Table extends React.Component {
     const urlPrefix = 'organizations/sentry/hellth/';
     const pluginList = [
       {
-        name: 'OpsGenie',
-        errors: 123,
-        pluginStatus: 'Operational',
-        smileStatus: 4,
+        logger: 'Jira',
+        count: 78127,
       },
       {
-        name: 'Jira',
-        errors: 119,
-        pluginStatus: 'Under Maintenance',
-        smileStatus: 4,
+        logger: 'Slack',
+        count: 18444,
       },
       {
-        name: 'VSTS',
-        errors: 232,
-        pluginStatus: 'Degraded Performance',
-        smileStatus: 4,
+        logger: 'Splunk',
+        count: 7183,
       },
       {
-        name: 'Trello',
-        errors: 444,
-        pluginStatus: 'Major Outage',
-        smileStatus: 4,
+        logger: 'Victor Ops',
+        count: 6314,
+      },
+      {
+        logger: 'Hipchat',
+        count: 10441,
+      },
+      {
+        logger: 'Flowdock',
+        count: 4510,
+      },
+
+      {
+        logger: 'Pushover',
+        count: 2851,
+      },
+      {
+        logger: 'Twilio',
+        count: 2058,
+      },
+      {
+        logger: 'PagerDuty',
+        count: 662,
+      },
+      {
+        logger: 'Ops Genie',
+        count: 480,
+      },
+      {
+        logger: 'Amazon SQS',
+        count: 358,
+      },
+      {
+        logger: 'GitHub',
+        count: 265,
+      },
+      {
+        logger: 'IRC',
+        count: 253,
+      },
+      {
+        logger: 'Campfire',
+        count: 104,
+      },
+      {
+        logger: 'VSTS',
+        count: 45,
+      },
+      {
+        logger: 'Gitlab',
+        count: 42,
+      },
+      {
+        logger: 'Visualstudio',
+        count: 23,
+      },
+      {
+        logger: 'Phabricator',
+        count: 21,
+      },
+      {
+        logger: 'Bitbucket',
+        count: 17,
+      },
+      {
+        logger: 'Redmine',
+        count: 6,
+      },
+      {
+        logger: 'Clubhouse',
+        count: 2,
+      },
+      {
+        logger: 'Asana',
+        count: 2,
+      },
+      {
+        logger: 'Groveio',
+        count: 1,
       },
     ];
+
     return (
       <div className="team-list" style={{flex: 'auto', padding: 20}}>
         <Panel>

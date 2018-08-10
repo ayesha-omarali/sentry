@@ -28,7 +28,7 @@ const PluginHellth = createReactClass({
       </PluginHealth>
     );
   },
-});
+});{}
 
 const PluginHealth = styled('div')`
   .control-group {
