@@ -90,7 +90,7 @@ const pluginDetails = createReactClass({
             <strong>{t(`Plugin Hell(th) of ${pluginInfo.name}`)}</strong>
             <PluginIcon
               p={2}
-              pl={10}
+              pl={25}
               size={50}
               pluginId={pluginInfo.name.toLowerCase()}
             />
@@ -168,7 +168,9 @@ const HeaderName = styled(Flex)`
 
 const CardWrapper = styled(Flex)`
   flex-flow: row;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom:20px;
   align: center;
 `;
 const Card = styled(Flex)`
@@ -180,7 +182,7 @@ const Card = styled(Flex)`
   border-radius: 10px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.02) 5px 5px 10px 0px;
-  padding: 15px;
+  padding-left: 15px;
 `;
 
 const CardHeader = styled(Flex)`
