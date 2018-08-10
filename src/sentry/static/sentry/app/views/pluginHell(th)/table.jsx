@@ -109,11 +109,8 @@ export default class Table extends React.Component {
         <Panel>
           <PanelHeader>
             <Box flex="1">{t('Plugins Status')}</Box>
-            <Box w={150} pl={42}>
+            <Box w={112} >
               {t('Errors')}
-            </Box>
-            <Box w={150} pl={57}>
-              {t('Status')}
             </Box>
             <Box w={150} pl={57}>
               {t('Details')}

@@ -6,13 +6,17 @@ import Form from 'app/views/settings/components/forms/form';
 import styled from 'react-emotion';
 import JsonForm from 'app/views/settings/components/forms/jsonForm';
 import {PanelAlert} from 'app/components/panels';
+import Button from 'app/components/buttons/button';
 
 import {Panel, PanelBody, PanelHeader} from 'app/components/panels';
 import {t, tct} from 'app/locale';
 import {Box} from 'grid-emotion';
 import {PanelItem} from 'app/components/panels';
+import OrganizationState from 'app/mixins/organizationState';
 
 const pluginDetails = createReactClass({
+  mixins: [OrganizationState],
+
   render() {
     const tests = [
       {
@@ -84,20 +88,23 @@ const pluginDetails = createReactClass({
         >
           <HeaderName style={{alignItems: 'center', flexDirection: 'row'}}>
             <strong>{t(`Plugin Hell(th) of ${pluginInfo.name}`)}</strong>
-            <PluginIcon p={2} pl={5} size={50} pluginId={pluginInfo.name.toLowerCase()} />
+            <PluginIcon p={2} pl={10} size={50} pluginId={pluginInfo.name.toLowerCase()} />
           </HeaderName>
+          <Button
+            align="right"
+            size="small"
+            to={`/organizations/${this.context.organization.slug}/hellth/`}
+          >
+            {t('Back To Plugin Hell(th) Home')}
+          </Button>
         </HeaderContainer>
 
         <div className="team-list" style={{flex: 'auto', padding: 20}}>
           <Panel>
             <PanelHeader>
               <Box flex="1">{t('Test')}</Box>
-              <Box w={150} pl={42}>
-                {t('Test Result')}
-              </Box>
-              <Box w={150} pl={57}>
-                {t('Error Received')}
-              </Box>
+              <Box w={173}>{t('Test Result')}</Box>
+              <Box w={225}>{t('Error Received')}</Box>
             </PanelHeader>
             <PanelBody> {testData} </PanelBody>
           </Panel>
@@ -109,6 +116,11 @@ const pluginDetails = createReactClass({
 
 export default pluginDetails;
 
+const PluginWrapper = styled(Flex)`
+  box-shadow: rgba(0, 0, 0, 0.02) 5px 5px 10px 10px;
+  height: 30px;
+  align: right;
+`;
 const PluginDetails = styled('div')`
   .control-group {
     margin-bottom: 0; /* Do not want the global control-group margins  */

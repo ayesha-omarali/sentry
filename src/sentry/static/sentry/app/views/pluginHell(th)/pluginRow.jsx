@@ -18,7 +18,7 @@ const PluginRow = createReactClass({
           {name}
           {/*<Link to={`${urlPrefix}details/${name}/`}>{name}</Link>*/}
         </Box>
-        <Box w={150}>{errors}</Box>
+        <Box w={0}>{errors}</Box>
         <Box w={150}>{pluginStatus}</Box>
         <Box p={2} align="right">
           <Button

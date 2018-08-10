@@ -15,6 +15,7 @@ const PluginHellth = createReactClass({
       <PluginHealth>
         <Header
           p={2}
+          pl={21}
           justify="space-between"
           align="center"
           className="sub-header"
