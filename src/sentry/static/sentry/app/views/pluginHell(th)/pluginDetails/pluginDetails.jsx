@@ -88,7 +88,12 @@ const pluginDetails = createReactClass({
         >
           <HeaderName style={{alignItems: 'center', flexDirection: 'row'}}>
             <strong>{t(`Plugin Hell(th) of ${pluginInfo.name}`)}</strong>
-            <PluginIcon p={2} pl={10} size={50} pluginId={pluginInfo.name.toLowerCase()} />
+            <PluginIcon
+              p={2}
+              pl={10}
+              size={50}
+              pluginId={pluginInfo.name.toLowerCase()}
+            />
           </HeaderName>
           <Button
             align="right"
@@ -98,6 +103,32 @@ const pluginDetails = createReactClass({
             {t('Back To Plugin Hell(th) Home')}
           </Button>
         </HeaderContainer>
+
+        <CardWrapper>
+          <Card>
+            <CardHeader>How To Login</CardHeader>
+            <CardContent>Go to this page to find more!!! </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>What is it</CardHeader>
+            <CardContent>
+              More info here yada yada yada yada
+              More info here yada yada yada yada
+              More info here yada yada yada yada
+              More info here yada yada yada yada
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>How To Install</CardHeader>
+            <CardContent>
+              blah blah blah blah blah blah blah blah
+              blah blah blah blah blah blah blah blah
+              blah blah blah blah blah blah blah blah
+            </CardContent>
+          </Card>
+        </CardWrapper>
 
         <div className="team-list" style={{flex: 'auto', padding: 20}}>
           <Panel>
@@ -135,17 +166,25 @@ const HeaderName = styled(Flex)`
   align: center;
 `;
 
+const CardWrapper = styled(Flex)`
+  flex-flow: row;
+  padding: 20px;
+  align: center;
+`;
 const Card = styled(Flex)`
+  flex-flow: row wrap;
   margin-top: 1em;
   background-color: #fff;
   width: 600px;
   min-height: 100px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.02) 5px 5px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 5px 5px 10px 0px;
+  padding: 15px;
 `;
 
 const CardHeader = styled(Flex)`
+  height: 28%;
   width: 100%;
   padding: 1em;
   text-align: center;
